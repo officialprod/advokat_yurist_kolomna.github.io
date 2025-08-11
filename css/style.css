@@ -1,0 +1,698 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap');
+
+h1, h2, h3 {
+  font-family: 'Crimson Text', serif;
+}
+
+/* Общие стили */
+:root {
+    --primary: #2c3e50;
+    --secondary: #e67e22;
+    --accent: #f1c40f;
+    --light: #ecf0f1;
+    --dark: #222;
+    --font-main: 'Segoe UI', Arial, sans-serif;
+    --font-size-base: 18px; /* Увеличенный базовый размер шрифта */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    font-size: var(--font-size-base); /* Применение базового размера */
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Фоновые изображения для секций */
+.hero,
+.about,
+.services,
+.diplomas,
+.contacts {
+    position: relative; /* Обязательно для корректного отображения фона */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1589829087868-4d9f6e4d0c4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') center/cover;
+    opacity: 0.15;
+    z-index: -1;
+    filter: blur(1px);
+}
+
+.hero {
+    background-image: url('../img/backgrounds/justice-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: #fff;
+    padding: 4rem 0 3rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1.5s;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') center/cover;
+    opacity: 0.08;
+    z-index: -1;
+    filter: blur(1px);
+}
+
+.services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1580577725948-2da3c0b0a2d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') center/cover;
+    opacity: 0.07;
+    z-index: -1;
+    filter: blur(1px);
+}
+
+.diplomas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') center/cover;
+    opacity: 0.06;
+    z-index: -1;
+    filter: blur(1px);
+}
+
+.contacts::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') center/cover;
+    opacity: 0.07;
+    z-index: -1;
+    filter: blur(1px);
+}
+
+/* Header */
+.header {
+    background: var(--primary);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    animation: fadeInDown 0.8s;
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.logo__img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    transition: transform 0.3s;
+}
+
+.logo__img:hover {
+    transform: scale(1.1);
+}
+
+.logo__text h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.logo__text p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--accent);
+}
+
+.nav__list {
+    display: flex;
+    gap: 2.2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    position: relative;
+    transition: color 0.2s;
+}
+
+.nav__link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+.nav__link:hover {
+    color: var(--accent);
+}
+
+.nav__link:hover::after {
+    width: 100%;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(120deg, var(--primary) 60%, var(--secondary) 100%);
+    color: #fff;
+    padding: 5rem 0 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1.5s;
+}
+
+.hero__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero__title {
+    font-size: 3rem;
+    margin-bottom: 1.2rem;
+    animation: slideInUp 1s;
+}
+
+.hero__subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    animation: slideInUp 1.2s;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.3rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    text-decoration: none;
+}
+
+.btn--primary {
+    background: var(--secondary);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(230,126,34,0.15);
+}
+
+.btn--primary:hover {
+    background: var(--accent);
+    color: var(--primary);
+    transform: translateY(-3px) scale(1.03);
+}
+
+.btn--secondary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn--secondary:hover {
+    background: var(--accent);
+    color: var(--primary);
+}
+
+/* About */
+.about {
+    padding: 4rem 0;
+    background: #fff;
+}
+
+.about__container {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about__text {
+    flex: 2;
+}
+
+.about__text h2 {
+    color: var(--primary);
+    margin-bottom: 1.2rem;
+    font-size: 2.3rem;
+}
+
+.about__list {
+    list-style: disc inside;
+    margin: 1.2rem 0 0 0;
+    padding: 0;
+}
+
+.about__list li {
+    margin-bottom: 0.7rem;
+    font-size: 1.2rem;
+}
+
+.about__img {
+    flex: 1;
+    text-align: center;
+}
+
+.about__photo {
+    width: 240px;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    transition: transform 0.3s;
+}
+
+.about__photo:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* Services */
+.services {
+    padding: 4rem 0;
+    background: var(--light);
+}
+
+.services__container h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 2.5rem;
+    font-size: 2.3rem;
+}
+
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.2rem;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 2.2rem 1.8rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.service-card__icon {
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.service-card h3 {
+    margin: 0.7rem 0 0.7rem 0;
+    color: var(--secondary);
+    font-size: 1.4rem;
+}
+
+.service-card p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Diplomas */
+.diplomas {
+    padding: 4rem 0;
+    background: #fff;
+}
+
+.diplomas__container h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 2.5rem;
+    font-size: 2.3rem;
+}
+
+.diplomas__grid {
+    display: flex;
+    gap: 2.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.diploma-card {
+    background: var(--light);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 1.8rem 1.2rem;
+    text-align: center;
+    width: 270px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.diploma-card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.diploma-card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 1.2rem;
+    border-radius: 8px;
+}
+
+.diploma-card p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Contacts */
+.contacts {
+    padding: 4rem 0;
+    background: var(--light);
+}
+
+.contacts__container h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 2.5rem;
+    font-size: 2.3rem;
+}
+
+.contacts__info {
+    max-width: 550px;
+    margin: 0 auto 2.5rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 2.2rem 1.8rem;
+}
+
+.contact-block {
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+}
+
+.contact-block a {
+    color: var(--secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-block a:hover {
+    color: var(--accent);
+}
+
+.contact-form {
+    max-width: 550px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 2.2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.contact-form h3 {
+    margin: 0 0 1.2rem 0;
+    color: var(--secondary);
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: border 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border: 1.5px solid var(--secondary);
+    outline: none;
+}
+
+.contact-form button {
+    margin-top: 0.8rem;
+}
+
+/* Footer */
+.footer {
+    background: var(--primary);
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.footer__container p {
+    margin: 0.3rem 0;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+    .about__container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about__img {
+        margin-top: 1.8rem;
+    }
+    .diplomas__grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .header__container {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+    .nav__list {
+        gap: 1.2rem;
+    }
+    .hero__title {
+        font-size: 2.2rem;
+    }
+    .about__text h2,
+    .services__container h2,
+    .diplomas__container h2,
+    .contacts__container h2 {
+        font-size: 1.8rem;
+    }
+    .service-card,
+    .diploma-card {
+        width: 95vw;
+    }
+}
+/* Фоновые изображения для секций */
+.hero,
+.about,
+.services,
+.diplomas,
+.contacts {
+    position: relative; /* Обязательно для корректного отображения фона */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/backgrounds/justice-bg.jpg') center/cover;
+    opacity: 0.15;
+    z-index: -1;
+    filter: blur(1px);
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/backgrounds/books-bg.jpg') center/cover;
+    opacity: 0.08;
+    z-index: -1;
+    filter: blur(1px);
+}
+
+.services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/backgrounds/documents-bg.jpg') center/cover;
+    opacity: 0.07;
+    z-index: -1;
+    filter: blur(1px);
+}
+
+.diplomas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/backgrounds/diplomas-bg.jpg') center/cover;
+    opacity: 0.06;
+    z-index: -1;
+    filter: blur(1px);
+}
+
+.contacts::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/backgrounds/courthouse-bg.jpg') center/cover;
+    opacity: 0.07;
+    z-index: -1;
+    filter: blur(1px);
+}
+
+/* === УЛУЧШЕННЫЕ ФОНЫ === */
+.hero::before,
+.about::before,
+.services::before,
+.diplomas::before,
+.contacts::before {
+  background-attachment: fixed; /* плавный параллакс на десктопе */
+  filter: blur(1px);
+  z-index: -1;
+}
+
+.hero::before        { background: url('../img/backgrounds/justice-bg.jpg') center/cover; opacity: 0.05; }
+.about::before       { background: url('../img/backgrounds/books-bg.jpg') center/cover; opacity: 0.04; }
+.services::before    { background: url('../img/backgrounds/documents-bg.jpg') center/cover; opacity: 0.03; }
+.diplomas::before    { background: url('../img/backgrounds/diplomas-bg.jpg') center/cover; opacity: 0.03; }
+.contacts::before    { background: url('../img/backgrounds/courthouse-bg.jpg') center/cover; opacity: 0.03; }
+
+/* === ШРИФТ С ЗАСЕЧКАМИ === */
+h1, h2, h3 {
+  font-family: 'Crimson Text', serif;
+}
+
+/* === ПОДЛОЖКА ДЛЯ ЧИТАЕМОСТИ === */
+.hero__content,
+.about__text,
+.service-card,
+.diploma-card,
+.contact-form {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(2px);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+/* === ИКОНКА ФЕМИДЫ === */
+.justice-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  opacity: 0.25;
+  z-index: 1000;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.justice-icon:hover {
+  opacity: 0.8;
+}
+
+/* === МОБИЛЬНАЯ АДАПТАЦИЯ === */
+@media (max-width: 768px) {
+  .hero::before,
+  .about::before,
+  .services::before,
+  .diplomas::before,
+  .contacts::before {
+    background-attachment: scroll; /* отключаем параллакс на мобильных */
+  }
+
+  .justice-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
